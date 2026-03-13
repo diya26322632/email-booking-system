@@ -1,0 +1,12 @@
+{
+  "type": "flight_booking",
+  "fields": {
+    "passenger_name": "string",
+    "pnr": "string",
+    "flight_number": "string",
+    "departure_airport": "string",
+    "arrival_airport": "string",
+    "departure_date": "string",
+    "departure_time": "string"
+  }
+}

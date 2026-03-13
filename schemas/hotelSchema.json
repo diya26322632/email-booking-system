@@ -1,0 +1,11 @@
+{
+  "type": "hotel_booking",
+  "fields": {
+    "guest_name": "string",
+    "hotel_name": "string",
+    "address": "string",
+    "check_in_date": "string",
+    "check_out_date": "string",
+    "booking_id": "string"
+  }
+}
