@@ -17,13 +17,41 @@ The architecture is designed to be **scalable, privacy-conscious, and cost-effic
 
 ## Project Demo
 
-### Dashboard
+### 🖥️ Dashboard Interface
 
-![Dashboard](screenshots/dashboard.png)
+The dashboard displays extracted booking information including passenger name, PNR, and booking ID.  
+It also shows booking statistics such as total bookings, flight bookings, and hotel bookings.
+
+![Email Booking Dashboard](screenshots/dashboard.png)
+
+---
 
 ### API Response
 
+The backend exposes an API endpoint that processes booking emails and returns structured booking data in JSON format.
+
+Endpoint:
+
+
+http://localhost:3000/process
+
+
+Example response:
+
+
+[
+{"passenger":"Diya Sangar","pnr":"AB123","bookingId":null},
+{"passenger":null,"pnr":null,"bookingId":"HTL567"},
+{"passenger":"Rahul Sharma","pnr":"XY456","bookingId":null},
+{"passenger":"Neha Gupta","pnr":"AI789","bookingId":null},
+{"passenger":null,"pnr":null,"bookingId":"HTL890"},
+{"passenger":"Priya Singh","pnr":"PN234","bookingId":null}
+]
+
+
 ![API Response](screenshots/api-response.png)
+
+
 
 
 ## Project Preview
