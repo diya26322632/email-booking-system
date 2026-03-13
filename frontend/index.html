@@ -2,34 +2,163 @@
 <html>
 
 <head>
-    <title>Booking Dashboard</title>
+
+<title>Email Booking Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+margin:0;
+background:#f4f6fb;
+}
+
+.container{
+width:90%;
+margin:auto;
+padding-top:30px;
+}
+
+h1{
+text-align:center;
+color:#333;
+margin-bottom:30px;
+}
+
+.cards{
+display:flex;
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+flex:1;
+background:#ffffff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h2{
+margin:0;
+font-size:26px;
+color:#4facfe;
+}
+
+.card p{
+margin-top:5px;
+color:#777;
+}
+
+button{
+display:block;
+margin:20px auto;
+background:#4facfe;
+border:none;
+color:white;
+padding:12px 25px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#3c8ce7;
+}
+
+.table-container{
+background:white;
+border-radius:10px;
+padding:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#4facfe;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+tr:hover{
+background:#f8f9ff;
+}
+
+@media(max-width:800px){
+
+.cards{
+flex-direction:column;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h2>Email Booking Dashboard</h2>
+<div class="container">
 
-<button type="button" onclick="loadBookings()">Load Bookings</button>
+<h1>Email Booking Dashboard</h1>
 
-<table border="1" id="bookingTable">
+<div class="cards">
+
+<div class="card">
+<h2 id="total">0</h2>
+<p>Total Bookings</p>
+</div>
+
+<div class="card">
+<h2 id="pnr">0</h2>
+<p>Flights</p>
+</div>
+
+<div class="card">
+<h2 id="hotel">0</h2>
+<p>Hotels</p>
+</div>
+
+</div>
+
+<button onclick="loadBookings()">Load Bookings</button>
+
+<div class="table-container">
+
+<table id="bookingTable">
+
 <tr>
 <th>Passenger</th>
 <th>PNR</th>
 <th>Booking ID</th>
 </tr>
+
 </table>
+
+</div>
+
+</div>
 
 <script>
 
 async function loadBookings(){
 
-const res = await fetch("http://127.0.0.1:3000/process");
-
+const res = await fetch("/process");
 const data = await res.json();
 
 const table = document.getElementById("bookingTable");
 
-// clear old rows
 table.innerHTML = `
 <tr>
 <th>Passenger</th>
@@ -37,6 +166,9 @@ table.innerHTML = `
 <th>Booking ID</th>
 </tr>
 `;
+
+let flightCount=0;
+let hotelCount=0;
 
 data.forEach(b => {
 
@@ -46,7 +178,14 @@ row.insertCell(0).innerText = b.passenger || "-";
 row.insertCell(1).innerText = b.pnr || "-";
 row.insertCell(2).innerText = b.bookingId || "-";
 
+if(b.pnr) flightCount++;
+if(b.bookingId) hotelCount++;
+
 });
+
+document.getElementById("total").innerText=data.length;
+document.getElementById("pnr").innerText=flightCount;
+document.getElementById("hotel").innerText=hotelCount;
 
 }
 
