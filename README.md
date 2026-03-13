@@ -23,7 +23,7 @@ The architecture is designed to be **scalable, privacy-conscious, and cost-effic
 
 ### API Response
 
-![API Response](screenshots/api-response.png)
+![API Response](screenshots/api.response.png)
 
 
 ## Project Preview
