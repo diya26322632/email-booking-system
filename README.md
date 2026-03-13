@@ -1,3 +1,10 @@
+![Node.js](https://img.shields.io/badge/Node.js-18-green)
+![Express](https://img.shields.io/badge/Express.js-Backend-blue)
+![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Project-Active-success)
+
+
 # 📧 Email Booking Data Extraction System
 
 ## Overview
@@ -7,6 +14,13 @@ The **Email Booking Data Extraction System** is designed to automatically proces
 The system detects booking confirmation emails, extracts relevant data using rule-based parsing, converts the extracted information into a **standardized schema**, and stores it in a **secure vault database** for easy retrieval through a dashboard interface.
 
 The architecture is designed to be **scalable, privacy-conscious, and cost-efficient**, minimizing repeated AI processing by maintaining a **template registry** for known email formats.
+
+
+## Project Preview
+
+Below is the architecture of the system used to process booking emails.
+
+![Architecture Diagram](diagrams/architecture.png)
 
 ---
 
