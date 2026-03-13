@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Booking Dashboard</title>
+</head>
+
+<body>
+
+<h2>Email Booking Dashboard</h2>
+
+<button type="button" onclick="loadBookings()">Load Bookings</button>
+
+<table border="1" id="bookingTable">
+<tr>
+<th>Passenger</th>
+<th>PNR</th>
+<th>Booking ID</th>
+</tr>
+</table>
+
+<script>
+
+async function loadBookings(){
+
+const res = await fetch("http://127.0.0.1:3000/process");
+
+const data = await res.json();
+
+const table = document.getElementById("bookingTable");
+
+// clear old rows
+table.innerHTML = `
+<tr>
+<th>Passenger</th>
+<th>PNR</th>
+<th>Booking ID</th>
+</tr>
+`;
+
+data.forEach(b => {
+
+const row = table.insertRow();
+
+row.insertCell(0).innerText = b.passenger || "-";
+row.insertCell(1).innerText = b.pnr || "-";
+row.insertCell(2).innerText = b.bookingId || "-";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
