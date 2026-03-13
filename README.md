@@ -15,7 +15,15 @@ The system detects booking confirmation emails, extracts relevant data using rul
 
 The architecture is designed to be **scalable, privacy-conscious, and cost-efficient**, minimizing repeated AI processing by maintaining a **template registry** for known email formats.
 
+## Project Demo
 
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### API Response
+
+![API Response](screenshots/api-response.png)
 
 
 ## Project Preview
